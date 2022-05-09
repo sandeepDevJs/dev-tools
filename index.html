@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+    const p = document.querySelector('p');
+
+    function makeGreen() {
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log("Hello")
+
+    // Interpolated
+    console.log("Hi I am a %s", "string")
+
+    // Styled
+    console.log("%c Hi I am styled!!", "background-color:red; font-size:30px")
+
+    // warning!
+    console.warn("Woah!, I didn't do that")
+
+    // Error :|
+    console.error("What the hell is wrong with you?")
+
+    // Info
+    console.info("Ask her out!")
+
+    // Testing
+    console.assert(1 !== 1, "thats is so not true")
+
+    // clearing
+    // console.clear()
+
+    // Viewing DOM Elements
+    console.dir(p)
+
+    // Grouping together
+    dogs.map(dog => {
+        // console.group(`${dog.name}`)
+        console.groupCollapsed(`${dog.name}`)
+
+        console.log(`this is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old!`);
+
+        console.groupEnd(`${dog.name}`)
+    })
+
+    // counting
+    console.count("Hola!")
+    console.count("hello!")
+    console.count("Hola!")
+    console.count("Namaste");
+    console.count("Namaste");
+    console.count("Hola!")
+    console.count("hello!")
+    console.count("hello!")
+    console.count("hello!")
+    console.count("Namaste")
+
+    // timing
+
+    console.time("fetching data");
+    fetch('https://jsonplaceholder.typicode.com/todos/1').then(() =>{
+        console.timeEnd("fetching data");
+    })
+
+    console.table(dogs)
+
+  </script>
+</body>
+</html>
